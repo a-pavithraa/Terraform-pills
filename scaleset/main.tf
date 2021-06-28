@@ -130,13 +130,13 @@ resource "azurerm_monitor_autoscale_setting" "Az-Demo1" {
 # Install Tomcat web server in every Instance in VM scale sets 
 #-----------------------------------------------------------
 resource "azurerm_virtual_machine_scale_set_extension" "vmss-tomcat" {
-  
+
   name                         = "install-tomcat"
   publisher                    = "Microsoft.Compute"
   type                         = "CustomScriptExtension"
   type_handler_version         = "1.9"
   virtual_machine_scale_set_id = azurerm_windows_virtual_machine_scale_set.Az-Demo1.id
-  protected_settings = <<PROTECTED_SETTINGS
+  protected_settings           = <<PROTECTED_SETTINGS
     {
       "commandToExecute": "powershell.exe -Command $Env:CATALINA_HOME = \"C:/tomcat/apache-tomcat-9.0.46-windows-x64/apache-tomcat-9.0.46\""
     }

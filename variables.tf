@@ -14,9 +14,9 @@ variable "subscription_id" {
 variable "app_subnet_count" {
 
 }
-variable "admin_user"{
+variable "admin_user" {
 
 }
 variable "admin_password" {
-  
+
 }

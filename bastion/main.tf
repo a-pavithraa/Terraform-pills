@@ -3,8 +3,8 @@ resource "azurerm_public_ip" "pip1" {
   resource_group_name = var.rg_name
   location            = var.location
 
-  allocation_method   = "Static"
-  sku                 = "Standard"
+  allocation_method = "Static"
+  sku               = "Standard"
 }
 
 # resource "azurerm_network_interface_security_group_association" "Az-Demo1" {

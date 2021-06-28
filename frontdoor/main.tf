@@ -43,11 +43,11 @@ resource "azurerm_frontdoor" "Az-Demo1" {
     #web_application_firewall_policy_link_name = "TerraformPolicy" #Optional Enter the name of the waf policy you'll be creating 
   }
 
- frontend_endpoint {
-    name                                    = "virtualcircle"
-    host_name                               = "todo.pavithraavasudevan.com"
-    session_affinity_enabled                = false #default: false
-    session_affinity_ttl_seconds            = 0     #default: 0
+  frontend_endpoint {
+    name                         = "virtualcircle"
+    host_name                    = "todo.pavithraavasudevan.com"
+    session_affinity_enabled     = false #default: false
+    session_affinity_ttl_seconds = 0     #default: 0
     #web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.az_demo1.id
   }
 

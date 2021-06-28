@@ -59,16 +59,16 @@ resource "azurerm_monitor_diagnostic_setting" "vmmsdiag" {
 }
 
 resource "azurerm_virtual_machine_scale_set_extension" "monitor-DependencyAgent-agent" {
-  
-  name                  = "vmext-monitorDepAgent-${var.vmscaleset_name}-${substr(uuid(), 0, 3)}"
-  
+
+  name = "vmext-monitorDepAgent-${var.vmscaleset_name}-${substr(uuid(), 0, 3)}"
+
   virtual_machine_scale_set_id = var.scaleset_id
-  publisher             = "Microsoft.Azure.Monitoring.DependencyAgent"
-  type                  = "DependencyAgentWindows"
-  type_handler_version  = "9.5"
-  auto_upgrade_minor_version = true
- 
- settings = <<SETTINGS
+  publisher                    = "Microsoft.Azure.Monitoring.DependencyAgent"
+  type                         = "DependencyAgentWindows"
+  type_handler_version         = "9.5"
+  auto_upgrade_minor_version   = true
+
+  settings = <<SETTINGS
     {
       "workspaceId": "${azurerm_log_analytics_workspace.loganalyticsworkspace.workspace_id}"
     }
@@ -79,7 +79,7 @@ resource "azurerm_virtual_machine_scale_set_extension" "monitor-DependencyAgent-
     "workspaceKey": "${azurerm_log_analytics_workspace.loganalyticsworkspace.primary_shared_key}"
     }
 PROTECTED_SETTINGS
- 
- 
+
+
 }
- 
+

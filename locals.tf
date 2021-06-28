@@ -10,7 +10,8 @@ locals {
           access                     = "Allow"
           protocol                   = "Tcp"
           destination_port_range     = "80"
-          source_address_prefix      = "*"
+          source_address_prefix      = "AzureFrontDoor.Backend"
+          source_port_range          = "*"
           destination_address_prefix = "0.0.0.0/0"
         }
         rule2 = {
